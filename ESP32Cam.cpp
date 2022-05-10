@@ -3,14 +3,14 @@
 void InitMicroSDCard()
 {
   // Start Micro SD card
-  Serial.println("Starting SD Card");
+  Serial.println("Starting SD Card\n");
   if(!SD_MMC.begin()){
-    Serial.println("SD Card Mount Failed");
+    Serial.println("SD Card Mount Failed\n");
     return;
   }
   uint8_t cardType = SD_MMC.cardType();
   if(cardType == CARD_NONE){
-    Serial.println("No SD Card attached");
+    Serial.println("No SD Card attached\n");
     return;
   }
 }
@@ -115,14 +115,14 @@ void ESP32Cam::Init(void)
   // Select lower framesize if the camera doesn't support PSRAM
   if(psramFound())
   {
-    Serial.print("psram found...");
+    Serial.print("psram found...\n");
     m_config.frame_size = FRAMESIZE_QVGA; // FRAMESIZE_ + QVGA|CIF|VGA|SVGA|XGA|SXGA|UXGA
     m_config.jpeg_quality = 1; //10-63 lower number means higher quality
     m_config.fb_count = 2;
   } 
   else 
   {
-    Serial.print("psram NOT found...");
+    Serial.print("psram NOT found...\n");
     m_config.frame_size = FRAMESIZE_QVGA;
     m_config.jpeg_quality = 12;
     m_config.fb_count = 1;
@@ -131,12 +131,12 @@ void ESP32Cam::Init(void)
   // Initialize the Camera
   esp_err_t err = esp_camera_init(&m_config);
   if (err != ESP_OK) {
-    Serial.printf("Camera init failed with error 0x%x", err);
+    Serial.printf("Camera init failed with error 0x%x\n", err);
     return;
   }
    
   //Initialize MicroSD
-  Serial.print("Initializing the MicroSD card module... ");
+  Serial.print("Initializing the MicroSD card module...\n ");
   InitMicroSDCard();
   
   sensor_t * s = esp_camera_sensor_get();
