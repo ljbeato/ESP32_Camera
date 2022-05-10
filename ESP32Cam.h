@@ -1,5 +1,6 @@
+#ifndef  _ESP32_CAM_
+#define _ESP32_CAM_
 #include "esp_camera.h"
-
 #include "FS.h"                // SD Card ESP32
 #include "SD_MMC.h"            // SD Card ESP32
 #include "soc/soc.h"           // Disable brownout problems
@@ -34,10 +35,12 @@ class ESP32Cam
   ESP32Cam(void);
   ~ESP32Cam(void);
   void Init(void);
-  void TakePhoto(void)
-  void SavePhoto(char *filename);
-  void ReleaseFrameBuffer();
+  void TakePhoto(void);
+  void SavePhoto(String filename);
+  void ReleaseFrameBuffer(void);
   protected:
   camera_config_t m_config;
-  camera_fb_t  *m_fb;
-}
+  camera_fb_t  *m_frame;
+
+};
+#endif
