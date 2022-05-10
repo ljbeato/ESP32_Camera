@@ -24,7 +24,7 @@ void setup()
 {
   pinMode(LED,OUTPUT);
   // put your setup code here, to run once:
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.setDebugOutput(true);
   Serial.println();
 
@@ -46,7 +46,6 @@ void loop()
   delay(500);
   //digitalWrite(LED,HIGH);  
   // take a photo
-  cam.Init();
   Serial.println("Taking Photo");
   cam.TakePhoto();
   // replace this with your own function
