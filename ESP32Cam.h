@@ -42,7 +42,15 @@ Move the downloaded unzipped folders to your Arduino IDE installation libraries 
 #define VSYNC_GPIO_NUM    25
 #define HREF_GPIO_NUM     23
 #define PCLK_GPIO_NUM     22
-
+/*
+FRAMESIZE_UXGA (1600 x 1200)
+FRAMESIZE_QVGA (320 x 240)
+FRAMESIZE_CIF (352 x 288)
+FRAMESIZE_VGA (640 x 480)
+FRAMESIZE_SVGA (800 x 600)
+FRAMESIZE_XGA (1024 x 768)
+FRAMESIZE_SXGA (1280 x 1024)
+*/
 class ESP32Cam 
 {
   public:
@@ -51,10 +59,11 @@ class ESP32Cam
   void InitCamera(pixformat_t pixFormat);
   void TakePhoto(void);
   void SavePhoto(String filename);
-  void ReleaseFrameBuffer(void);
+  void ReleasePhoto(void);
   void RedLED (int state); // 0 = off, 1 = on
   void FlashLED (int state); // 0 = off, 1 = on
   void ConnectToWiFi (String SSID, String password);
+  byte* GetDataBuffer(int plane);
   protected:
   camera_config_t m_config;
   camera_fb_t  *m_frame;

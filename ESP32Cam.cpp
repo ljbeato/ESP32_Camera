@@ -68,6 +68,14 @@ void ESP32Cam::TakePhoto(void)
   }
   return;
 }
+
+byte* ESP32Cam::GetDataBuffer(int plane)
+{
+  // FIX ME  - where does each plane start????
+  byte *buf;
+  buf = m_frame->buf;
+  return buf;
+}
 //////////////////////////////////////////////////////////////////////////
 //
 // SavePhoto
@@ -94,10 +102,10 @@ void ESP32Cam::SavePhoto(String path)
 }
 //////////////////////////////////////////////////////////////////////////
 //
-// ReleaseFrameBuffer
+// ReleasePhoto
 //
 //
-void ESP32Cam::ReleaseFrameBuffer(void)
+void ESP32Cam::ReleasePhoto(void)
 {
     //return the frame buffer back to the driver for reuse
   esp_camera_fb_return(m_frame);  
