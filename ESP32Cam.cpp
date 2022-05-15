@@ -33,7 +33,7 @@ ESP32Cam::ESP32Cam (void)
 //
 ESP32Cam::~ESP32Cam(void)
 {
-  ReleaseFrameBuffer (); 
+  ReleasePhoto (); 
   m_frame = NULL;
 }
 //////////////////////////////////////////////////////////////////////////
