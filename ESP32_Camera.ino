@@ -63,7 +63,7 @@ void loop()
   cam.SavePhoto(pathJPG);
   //SaveLine(frame, pathBMP);
   // release frame buffer
-  cam.ReleaseFrameBuffer();
+  cam.ReleasePhoto();
   pictureNumber++;
   if(pictureNumber == 10)
   {
