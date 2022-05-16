@@ -121,8 +121,11 @@ void ESP32Cam::RedLED(int state)
     if (state == 0)
       digitalWrite(RED_LED, LOW); 
     else
+    {
       digitalWrite(RED_LED, HIGH); 
+    }
 }
+
 //////////////////////////////////////////////////////////////////////////
 //
 // RED_LED
@@ -200,6 +203,6 @@ void ESP32Cam::InitCamera(pixformat_t pixFormat)
   s->set_vflip(s, 0);          // 0 = disable , 1 = enable
   s->set_dcw(s, 1);            // 0 = disable , 1 = enable
   s->set_colorbar(s, 0);       // 0 = disable , 1 = enable 
-  InitMicroSDCard();
+  //InitMicroSDCard();
  
 }
