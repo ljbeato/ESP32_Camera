@@ -203,6 +203,6 @@ void ESP32Cam::InitCamera(pixformat_t pixFormat)
   s->set_vflip(s, 0);          // 0 = disable , 1 = enable
   s->set_dcw(s, 1);            // 0 = disable , 1 = enable
   s->set_colorbar(s, 0);       // 0 = disable , 1 = enable 
-  //InitMicroSDCard();
+  InitMicroSDCard();
  
 }
