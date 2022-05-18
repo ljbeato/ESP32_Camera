@@ -69,7 +69,7 @@ void ESP32Cam::TakePhoto(void)
   return;
 }
 
-byte* ESP32Cam::GetDataBuffer(int plane)
+byte* ESP32Cam::GetDataBuffer(void)
 {
   // FIX ME  - where does each plane start????
   byte *buf;
@@ -133,11 +133,11 @@ void ESP32Cam::RedLED(int state)
 //
 void ESP32Cam::FlashLED(int state)
 {
-    //return the frame buffer back to the driver for reuse
-    if (state == 0)
-      digitalWrite(FLASH_LED, LOW); 
-    else
-      digitalWrite(FLASH_LED, HIGH); 
+  //return the frame buffer back to the driver for reuse
+  if (state == 0)
+    digitalWrite(FLASH_LED, LOW); 
+  else
+    digitalWrite(FLASH_LED, HIGH); 
 }
 //////////////////////////////////////////////////////////////////////////
 //
@@ -203,6 +203,5 @@ void ESP32Cam::InitCamera(pixformat_t pixFormat)
   s->set_vflip(s, 0);          // 0 = disable , 1 = enable
   s->set_dcw(s, 1);            // 0 = disable , 1 = enable
   s->set_colorbar(s, 0);       // 0 = disable , 1 = enable 
-  InitMicroSDCard();
- 
+  //InitMicroSDCard();
 }
