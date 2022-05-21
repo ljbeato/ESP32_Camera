@@ -76,6 +76,14 @@ byte* ESP32Cam::GetDataBuffer(void)
   buf = m_frame->buf;
   return buf;
 }
+
+int ESP32Cam::GetDataBufferLen(void)
+{
+  // FIX ME  - where does each plane start????
+  int len;
+  len = m_frame->len;
+  return len;
+}
 //////////////////////////////////////////////////////////////////////////
 //
 // SavePhoto

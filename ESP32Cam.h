@@ -64,6 +64,8 @@ class ESP32Cam
   void FlashLED (int state); // 0 = off, 1 = on
   void ConnectToWiFi (String SSID, String password);
   byte* GetDataBuffer(void);
+  int   GetDataBufferLen(void);
+  camera_fb_t* GetFrame(void) {return m_frame;};
   protected:
   camera_config_t m_config;
   camera_fb_t  *m_frame;
